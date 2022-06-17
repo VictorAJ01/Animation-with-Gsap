@@ -2,6 +2,8 @@ import "./App.css";
 import { Container, Box } from "@chakra-ui/react";
 import { gsap } from "gsap";
 import React from "react";
+import Images from "./hover";
+import State from "./state";
 
 const { useRef, useEffect } = React;
 
@@ -20,24 +22,29 @@ function App() {
 
   useEffect(()=> {
     gsap.to(q(".circle"), {duration: 1, x: -30, delay: .05, ease: "expo.out", stagger: .15});
-  }, [])
+  }, [q])
 
   return (
-    <Container ref={el} marginLeft="50%" marginTop="15%">
-      <Box 
-        onMouseEnter={handleExpand}
-        onMouseLeave={handleShrink}
-        className="circle circleYellow"></Box>
-      <Box 
-        // onClick={state !== true ? handleExpand : handleShrink } 
-        onMouseEnter={handleExpand}
-        onMouseLeave={handleShrink}
-        className="circle circleRed"></Box>
-      <Box
-        onMouseEnter={handleExpand}
-        onMouseLeave={handleShrink} 
-        className="circle"></Box>
-    </Container>
+    <Box>
+      <Container ref={el} marginLeft="50%" marginTop="10%" marginBottom="10%">
+        <Box 
+          onMouseEnter={handleExpand}
+          onMouseLeave={handleShrink}
+          className="circle circleYellow"></Box>
+        <Box 
+          // onClick={state !== true ? handleExpand : handleShrink } 
+          onMouseEnter={handleExpand}
+          onMouseLeave={handleShrink}
+          className="circle circleRed"></Box>
+        <Box
+          onMouseEnter={handleExpand}
+          onMouseLeave={handleShrink} 
+          className="circle"></Box>
+      </Container>
+      <Images />
+      <State />
+    </Box>
+    
     
   );
 }

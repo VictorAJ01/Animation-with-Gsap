@@ -1,20 +1,20 @@
 import React from 'react'
 import { Box, Heading, Text } from "@chakra-ui/react"
-// import { gsap } from "gsap";
+import { gsap } from "gsap";
 
-// const { useRef, useEffect } = React;
+const { useRef, useEffect } = React;
 
 function Page() {
-    // const el = useRef();
-    // const s = gsap.utils.selector(el);
+    const el = useRef();
+    const s = gsap.utils.selector(el);
 
-    // useEffect(()=> {
-    //     gsap.to(s(".text"), {x:-110, duration: 10});
-    // }, [s]);
+    useEffect(()=> {
+        gsap.to(s(".text"), {x:-110, duration: 10});
+    }, [s]);
 
   return (
     <Box 
-        // ref={el} 
+        ref={el} 
         >
         <Heading className='text' fontSize="3rem">This is Animation</Heading>
         <Text className='text' >Learning never stops</Text>
